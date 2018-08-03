@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+
+    <!-- Console Appender -->
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout
+        pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
+    </Console>
+
+    <!-- File Appender -->
+    <File name="File" fileName="app.log">
+      <PatternLayout
+        pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
+    </File>
+
+  </Appenders>
+  <Loggers>
+    <Root level="trace">
+      <AppenderRef ref="Console" />
+      <AppenderRef ref="File" />
+    </Root>
+     <Root level="info">
+      <AppenderRef ref="Console" />
+      <AppenderRef ref="File" />
+    </Root>
+    <!-- add other roots -->
+  </Loggers>
+</Configuration>
+
+<!-- 	%d for displaying date time
+	%t = current thread name
+	level = level name (a type of logger info,debug, warn etc)
+	%msg - applicatin provided message
+ -->
+
+
+
+

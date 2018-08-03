@@ -1,0 +1,18 @@
+2018-Aug-03 12:46:59 PM [main] INFO  info.Video - video started playing
+2018-Aug-03 12:46:59 PM [main] ERROR info.Video - this is an error tag
+2018-Aug-03 12:46:59 PM [main] WARN  info.Video - this is a warnig tag
+2018-Aug-03 12:46:59 PM [main] FATAL info.Video - this is a fatal tag
+2018-Aug-03 12:46:59 PM [main] INFO  info.Video - video stopped playing
+2018-Aug-03 12:51:05 PM [main] TRACE info.Test - Entering application.
+2018-Aug-03 12:51:05 PM [main] INFO  info.Video - video started playing
+2018-Aug-03 12:51:05 PM [main] DEBUG info.Video - this is a debug tag
+2018-Aug-03 12:51:05 PM [main] ERROR info.Video - this is an error tag
+2018-Aug-03 12:51:05 PM [main] WARN  info.Video - this is a warnig tag
+2018-Aug-03 12:51:05 PM [main] FATAL info.Video - this is a fatal tag
+2018-Aug-03 12:51:05 PM [main] INFO  info.Video - video stopped playing
+2018-Aug-03 12:51:05 PM [main] TRACE info.Test - Exiting application.
+2018-Aug-03 12:52:21 PM [main] INFO  info.Video - video started playing
+2018-Aug-03 12:52:21 PM [main] ERROR info.Video - this is an error tag
+2018-Aug-03 12:52:21 PM [main] WARN  info.Video - this is a warnig tag
+2018-Aug-03 12:52:21 PM [main] FATAL info.Video - this is a fatal tag
+2018-Aug-03 12:52:21 PM [main] INFO  info.Video - video stopped playing

@@ -1,1 +1,1 @@
-# core-java
+# samples on core-java

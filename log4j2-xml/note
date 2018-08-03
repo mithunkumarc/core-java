@@ -1,0 +1,56 @@
+appenders : console , file
+loggers : root level : debug , error , warn , info
+
+add log4j2.xml under source
+
+why log4j2
+1.
+ In multi-threaded scenarios 
+ Asynchronous Loggers have 10 times higher throughput and orders of magnitude lower latency than Log4j 1.x and Logback.
+2. garbage free
+  From version 2.6, Log4j runs in "garbage free" mode by default where objects and buffers are reused and no temporary objects 
+  are allocated as much as possible. 
+  There is also a "low garbage" mode which is not completely garbage free but does not use ThreadLocal fields. 
+  This is the default mode when Log4j detects it is running in a web application. 
+  
+  -------------------------------log4j2.xml----------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+
+    <!-- Console Appender -->
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout
+        pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
+    </Console>
+
+    <!-- File Appender -->
+    <File name="File" fileName="app.log">
+      <PatternLayout
+        pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
+    </File>
+
+  </Appenders>
+  <Loggers>
+    <Root level="trace">
+      <AppenderRef ref="Console" />
+      <AppenderRef ref="File" />
+    </Root>
+     <Root level="info">
+      <AppenderRef ref="Console" />
+      <AppenderRef ref="File" />
+    </Root>
+    <!-- add other roots -->
+  </Loggers>
+</Configuration>
+
+<!-- 	%d for displaying date time
+	%t = current thread name
+	level = level name (a type of logger info,debug, warn etc)
+	%msg - applicatin provided message
+ -->
+
+
+
+

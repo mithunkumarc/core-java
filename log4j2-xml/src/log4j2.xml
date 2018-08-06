@@ -10,6 +10,10 @@
 
     <!-- File Appender -->
     <File name="File" fileName="app.log">
+	<param name="maxFileSize" value="1MB" /> <!-- backup size file-->
+	<param name="MaxBackupIndex" value="2"/> <!-- how many backupt files you want-->
+	    
+	    
       <PatternLayout
         pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
     </File>

@@ -1,3 +1,41 @@
+LoggerConfig Level : 
+In configuration file
+Trace : will print all kind of messages
+In config file : 
+<Loggers>
+	<Root level = "trace">
+		<AppenderRef ref="Console" ></AppenderRef>
+		<AppenderRef ref="File" ></AppenderRef>
+	</Root> 
+</Loggers>
+
+
+
+Debug : will print all kind of messages except trace
+In config file : 
+<Loggers>
+	<Root level = "debug">
+		<AppenderRef ref="Console" ></AppenderRef>
+		<AppenderRef ref="File" ></AppenderRef>
+	</Root> 
+</Loggers>
+
+INFO : will print only INFO , WARN , Error , Fatal
+<Root level ="info">
+
+
+WARN : prints WARN , ERROR and FATAL
+
+ERROR : ERROR and FATAL
+
+FATAL : FATAL
+
+
+link : https://logging.apache.org/log4j/2.0/manual/architecture.html
+
+
+
+---------------
 appenders : console , file
 loggers : root level : debug , error , warn , info
 

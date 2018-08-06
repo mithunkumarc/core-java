@@ -16,10 +16,12 @@
 
   </Appenders>
   <Loggers>
+	  <!-- if you want to print all log use trace-->
     <Root level="trace">
       <AppenderRef ref="Console" />
       <AppenderRef ref="File" />
     </Root>
+	  <!-- if u want to skip trace and keep other , use info, see LoggerConfig Level table for more info -->
      <Root level="info">
       <AppenderRef ref="Console" />
       <AppenderRef ref="File" />

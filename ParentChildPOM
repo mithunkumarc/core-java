@@ -1,0 +1,60 @@
+
+1.create two java maven projects namely ParentPom and ChildPom. 
+  Make sure two projects in same workspace. or else use relative path
+  
+  
+2.ParentPom : pom.xml
+  <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ParentPom</groupId>
+  <artifactId>ParentPom</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+  	<dependency>
+    	<groupId>io.projectreactor</groupId>
+    	<artifactId>reactor-bus</artifactId>
+    	<version>2.0.8.RELEASE</version>
+	</dependency>
+  </dependencies>
+</project>
+
+3.ChildPom : pom.xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <parent>
+        <groupId>ParentPom</groupId>
+  		<artifactId>ParentPom</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ChildPom</groupId>
+  <artifactId>ChildPom</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

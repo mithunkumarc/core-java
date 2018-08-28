@@ -1,0 +1,7 @@
+this example created in intellij
+java version 10
+
+
+1.create two modules FirstModule and SecondModule
+2.create a package in each module with module-info.java (for module-info.java , create new file and name it)
+3.if Second module requires package from First module, goto module settings select Second module, under dependency add First module

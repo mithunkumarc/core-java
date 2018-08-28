@@ -1,0 +1,21 @@
+create two projects
+1.First
+2.SecondProject
+
+In First Project , create pojo Employee with a getName method.
+In First Project, you will find module-info.java, create module with same name as package and export current package
+
+
+
+In second Project ,create Test class
+In module-info.java, create module same as package, mention "requires com.example" (package of First project)
+Goto buildpath > 
+    configure buildpath >
+                    project > 
+                    modulepath > 
+                          add select required project(First project) in order to import com.example pacakge.
+
+
+Remember
+you always export package, becuase personal/internal usage packages not good to share
+you always import modules, even though module do not give all source packages , some are not exported.

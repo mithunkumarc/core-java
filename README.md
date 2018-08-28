@@ -24,5 +24,4 @@ sudo apt install oracle-java10-installer
 sudo apt install oracle-java10-set-default
 *************************************************
 
-2.check
-java -version
+2.cross check : "java -version"

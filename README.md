@@ -5,6 +5,8 @@ installing java 10 on ubuntu
 
 source : 
 https://www.linuxuprising.com/2018/04/install-oracle-java-10-in-ubuntu-or.html
+
+
 https://launchpad.net/~linuxuprising/+archive/ubuntu/java
 
 add third party installer

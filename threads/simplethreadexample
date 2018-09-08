@@ -1,0 +1,69 @@
+package com.example;
+
+public class Test {
+	public static void main(String[] args) {
+		System.out.println("i am "+Thread.currentThread());
+		var t1 = new Thread() {
+			public void run() {
+				System.out.println("i am "+Thread.currentThread());
+			}; 
+		};
+		t1.setName("first thread");
+		t1.start();
+		System.out.println("i am "+Thread.currentThread());
+	}
+}
+
+
+//output :
+i am Thread[main,5,main]
+i am Thread[main,5,main]
+i am Thread[first thread,5,main]
+
+
+*******************************************************************************************************************
+
+package com.example;
+
+class BankTransaction extends Thread{
+	private String txNumber;//var not allowed for instance variables
+	private int amount;
+	
+	public BankTransaction(String txNumber,int amount) {
+		this.txNumber = txNumber;
+		this.amount = amount;
+	}
+	
+	@Override
+	public void run() {
+		this.transerAmount();
+	}
+	
+	public void transerAmount() {
+		System.out.println("transferring amount ..."+this.amount+", tx number :"+this.txNumber +", thread :"+Thread.currentThread());
+	}
+	
+	
+}
+
+public class Test {
+	public static void main(String[] args) {
+		BankTransaction b1 = new BankTransaction("tx1",1000);
+		BankTransaction b2 = new BankTransaction("tx2",2000);
+		//without thread, both transaction runs inside main thread
+		b1.transerAmount();
+		b2.transerAmount();
+		
+		//with thread, both transaction runs in seperate thread
+		b1.start();
+		b2.start();
+		
+	}
+}
+
+
+//output :
+transferring amount ...1000, tx number :tx1, thread :Thread[main,5,main]
+transferring amount ...2000, tx number :tx2, thread :Thread[main,5,main]
+transferring amount ...1000, tx number :tx1, thread :Thread[Thread-0,5,main]
+transferring amount ...2000, tx number :tx2, thread :Thread[Thread-1,5,main]

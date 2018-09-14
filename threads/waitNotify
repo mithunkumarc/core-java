@@ -1,0 +1,74 @@
+package com.example;
+class Ticket{
+	String name;
+	boolean isPaid;
+	public Ticket(String name,boolean isPaid) {
+		this.name = name;
+		this.isPaid = isPaid;
+	}
+}
+
+class BookingThread extends Thread{
+	
+	private Ticket ticket;
+	public BookingThread(Ticket ticket) {
+		this.ticket = ticket;
+	}
+	@Override
+	public void run() {
+		synchronized (this.ticket) {
+			if(!this.ticket.isPaid) {
+				try{
+					System.out.println("ticket waiting for payment");
+					this.ticket.wait();				
+					if(this.ticket.isPaid) {
+						System.out.println("ticket booked successfully");
+					}
+				}catch(InterruptedException i) {
+					System.out.println("some error");
+				}
+			}
+		}
+				
+	}
+	
+}
+
+class BankingThread extends Thread{
+	
+	private Ticket ticket;
+	public BankingThread(Ticket ticket) {
+		this.ticket = ticket;
+	}
+	public void run() {
+		synchronized (this.ticket) {
+			if(!this.ticket.isPaid) {
+				this.ticket.isPaid = true;
+				System.out.println("ticket paid , amound deducted form bank account");
+				this.ticket.notify();
+			}
+		}
+	}
+}
+
+public class TestWaitNotify {
+	public static void main(String[] args) {
+		Ticket ticket = new Ticket("movie",false);
+		BookingThread bookingThread = new BookingThread(ticket);
+		BankingThread bankingThread = new BankingThread(ticket);
+		bookingThread.start();
+		try{
+			Thread.sleep(2000);
+		}catch(InterruptedException i) {
+			System.out.println("some error...");
+		}
+		bankingThread.start();
+		
+	}
+}
+
+
+#output :
+ticket waiting for payment
+ticket paid , amound deducted form bank account
+ticket booked successfully

@@ -1,0 +1,59 @@
+package com.example;
+
+public class TestDeadlock {
+	static String key1 = "key1";
+	static String key2 = "key";
+	public static void main(String[] args) {
+		Thread t1 = new Thread() {
+			public void run() {
+				synchronized (key1) {
+						System.out.println("t1 got key1");
+						try{
+							Thread.sleep(5000); //forcing this thread to sleep to allow other thread to get key2
+						}catch(InterruptedException i ){
+							System.out.println("some error..");
+						}
+						System.out.println("t1 waiting for key2");
+					synchronized (key2) {
+						System.out.println("t1 got key2");
+					}
+					
+				}
+			}
+		};
+		
+		
+		Thread t2 = new Thread() {
+			public void run() {
+				synchronized (key2) {
+					System.out.println("t2 got key2");
+					System.out.println("t2 waiting for key1");
+					try {
+						Thread.sleep(5000);
+					}catch(InterruptedException i) {
+						System.out.println("some error...");
+					}
+					
+					synchronized (key1) {
+						System.out.println("t2 got key1");
+					}
+				}
+			}
+		};
+		
+		t1.start();
+		t2.start();
+		
+		
+		
+	}
+}
+
+
+
+# output : 
+
+t1 got key1
+t2 got key2
+t2 waiting for key1
+t1 waiting for key2

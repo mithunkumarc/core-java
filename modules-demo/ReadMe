@@ -5,3 +5,17 @@ java version 10
 1.create two modules FirstModule and SecondModule
 2.create a package in each module with module-info.java (for module-info.java , create new file and name it)
 3.if Second module requires package from First module, goto module settings select Second module, under dependency add First module
+
+***************************************************
+
+
+### projects can be organized into modules.
+
+jdk divided into modules:
+get list of module in oracle jdk documentation, by default java.base module will be avaialble.
+
+module-info.java
+every project has module-info.java
+in this file create your own module name.(choose name at the creating of your project)
+if you want to use other module , use requires keyword to use it. Syntax : requires <module-name>
+if you want to export package, use exports keyword. Syntax : exports <package-name>

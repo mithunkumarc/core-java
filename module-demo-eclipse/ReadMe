@@ -21,6 +21,21 @@ you always export package, becuase personal/internal usage packages not good to 
 you always import modules, even though module do not give all source packages , some are not exported.
 
 
+******************************************************************************************
+### projects can be organized into modules.
+
+jdk divided into modules:
+get list of module in oracle jdk documentation, by default java.base module will be avaialble.
+
+module-info.java
+every project has module-info.java
+in this file create your own module name.(choose name at the creating of your project)
+if you want to use other module , use requires keyword to use it. Syntax : requires <module-name>
+if you want to export package, use exports keyword. Syntax : exports <package-name>
+
+***********************************************************************************************
+
+
 
 reference : 
 https://www.journaldev.com/13630/javase9-helloworld-module-ides-part4

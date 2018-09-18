@@ -1,0 +1,25 @@
+interface Features{
+//constants
+	default void feature1() {
+		System.out.println("feature1");
+		logic();//uses some code, other default can share logic()
+	}
+	private void logic() {
+		//make helper methods private
+		//dont share helper method or shared code as public api
+		System.out.println("use some logic");
+	}
+	
+	public static void someMethod() {
+		//
+	}
+}
+
+class SomeClass implements Features{
+	@Override
+	public void feature1() {
+		// TODO Auto-generated method stub
+		Features.super.feature1();
+		//use default or override as you wish
+	}
+}

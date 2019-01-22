@@ -1,3 +1,13 @@
+#### stream acts only once, later it will be closed
+#### sample data.txt file
+          content : 
+                    first line
+                    second line
+                    third line
+
+
+
+
 #### read file using File.lines()
 
           package oops;
@@ -39,6 +49,26 @@
                                         } catch (IOException e) {
                                                   // TODO Auto-generated catch block
                                                   e.printStackTrace();
+                                        }
+                              }
+                    }
+
+
+#### bufferedreader : reading files through stream : try resource
+
+                    package oops;
+
+                    import java.io.BufferedReader;
+                    import java.io.IOException;
+                    import java.nio.file.Files;
+                    import java.nio.file.Paths;
+
+                    public class Test {
+                              public static void main(String[] args) {
+                                        try(BufferedReader reader = Files.newBufferedReader(Paths.get("","data.txt"))){
+                                                  reader.lines().forEach(System.out::println);
+                                        }catch(IOException ioe){
+                                                  System.out.println(ioe.getMessage());
                                         }
                               }
                     }

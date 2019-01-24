@@ -46,6 +46,9 @@
                     block.run();
                   } finally {
                     long end = System.nanoTime();
+                    
+                    
+source : https://stackoverflow.com/questions/23170832/java-8s-streams-why-parallel-stream-is-slower                    
                     System.out.println("Time taken(s): " + (end - start) / 1.0e9);
                   }
                 }
@@ -54,3 +57,8 @@
         ouput : 
         Time taken(s): 2.40593E-4 : sequential
         Time taken(s): 0.003211865 : parallel
+
+
+The first is that solving a problem in parallel always involves performing more actual work than doing it sequentially. 
+Overhead is involved in splitting the work among several threads and joining or merging the results. 
+Problems like converting short strings to lower-case are small enough that they are in danger of being swamped by the parallel splitting overhead.

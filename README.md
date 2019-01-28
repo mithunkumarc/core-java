@@ -76,3 +76,10 @@ sudo apt install oracle-java10-set-default
         
         
 > source video : https://www.youtube.com/watch?v=TaIzZU28xVs
+
+
+#### docker install ubuntu : 
+
+
+		https://docs.docker.com/install/linux/docker-ce/ubuntu/
+		https://www.javatpoint.com/docker-java-example

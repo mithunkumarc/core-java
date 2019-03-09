@@ -72,3 +72,16 @@
                                         }
                               }
                     }
+
+
+
+#### to write into file
+
+                    try(BufferedWriter writer = Files.newBufferedWriter(Paths.get("","data.txt"))){
+                                            //reader.lines().forEach(System.out::println);
+                                            writer.append("first line \n");
+                                            writer.append("second line");                       
+                                            //no need to close streams
+                                                  }catch(IOException ioe){
+                                            System.out.println(ioe.getMessage());
+                                                  }
